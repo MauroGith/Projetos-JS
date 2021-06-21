@@ -4,7 +4,7 @@ const inputSearchTodo = document.querySelector('.form-search input')
 
 const liHTML = text => {
     todosContainer.innerHTML += `
-        <li class="list-group-item d-flex justify-content-between align-items-center bg-info" data-js = "li">
+        <li class="list-group-item d-flex justify-content-between align-items-center bg-info" data-js="li">
             <span>${text}</span>
             <i class="far fa-trash-alt delete text-danger" data-js="trash"></i>
         </li>
@@ -21,8 +21,8 @@ const insertTodo = event => {
 
 const removeTodo = event => {
     const clickedElement = event.target
-    const todoLis = document.querySelectorAll('[data-js = "li"]')
-    const trashIcons = document.querySelectorAll('[data-js = "trash"]')
+    const todoLis = document.querySelectorAll('[data-js="li"]')
+    const trashIcons = document.querySelectorAll('[data-js="trash"]')
 
     trashIcons.forEach((trash, index) => 
         {if(clickedElement === trash) todoLis[index].remove()})
@@ -52,7 +52,6 @@ const removeHidenClass = event => {
 
 formAddTodo.addEventListener('submit', event => {
     event.preventDefault()
-
     insertTodo(event)
 })
 

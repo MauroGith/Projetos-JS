@@ -2,10 +2,9 @@ const formAddTodo = document.querySelector('.form-add-todo')
 const todosContainer = document.querySelector('.todos-container')
 const inputSearchTodo = document.querySelector('.form-search input')
 
-
 const liHTML = text => {
     todosContainer.innerHTML += `
-        <li class="list-group-item d-flex justify-content-between align-items-center bg-info" data-js = "li">
+        <li class="list-group-item d-flex justify-content-between align-items-center bg-info" data-js="li">
             <span>${text}</span>
             <i class="far fa-trash-alt delete text-danger" data-js="trash"></i>
         </li>
@@ -25,6 +24,7 @@ const removeTodo = event => {
     const todoLis = document.querySelectorAll('[data-js = "li"]')
     const trashIcons = document.querySelectorAll('[data-js = "trash"]')
     trashIcons.forEach((trash, index) => {
+        
         if(clickedElement === trash) {
             todoLis[index].remove()
         }
@@ -33,6 +33,7 @@ const removeTodo = event => {
 
 const addHidenClass = event => {
     const inputValue = event.target.value.trim().toLowerCase()
+    
     Array.from(todosContainer.children)
         .filter(todo =>  !todo.textContent.toLowerCase().includes(inputValue))
         .forEach(todo => {
@@ -43,6 +44,7 @@ const addHidenClass = event => {
 
 const removeHidenClass = event => {
     const inputValue = event.target.value.trim().toLowerCase()
+    
     Array.from(todosContainer.children)
         .filter(todo =>  todo.textContent.toLowerCase().includes(inputValue))
         .forEach(todo => {
@@ -57,11 +59,9 @@ formAddTodo.addEventListener('submit', event => {
     insertTodo(event)
 })
 
-
 todosContainer.addEventListener('click', event => {
     removeTodo(event)
 })
-
 
 inputSearchTodo.addEventListener('input', event => {
     addHidenClass(event)
